@@ -1,6 +1,8 @@
 package eco.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,13 +27,13 @@ public class cadastrarProdutoController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset-UTF-8");
-		System.out.println("Recebi metodo POST");
 		
 		String tipo = request.getParameter("tipo");
 		int comprimento;
 		int largura;
 		int quantidade;
 		double preco;
+		String mensagem;
 		
 		if (tipo!= null && !tipo.isEmpty() && request.getParameter("comprimento") != null && !request.getParameter("comprimento").isEmpty()
 				&& request.getParameter("largura") != null && !request.getParameter("largura").isEmpty()
@@ -44,14 +46,18 @@ public class cadastrarProdutoController extends HttpServlet {
 			quantidade = Integer.parseInt(request.getParameter("quantidade"));
 			preco = Double.parseDouble(request.getParameter("preco"));
 			
-			System.out.println("[CONTAINER]: " + comprimento);
-			System.out.println("[CONTAINER]: " + largura);
-			System.out.println("[CONTAINER]: " + quantidade);
-			System.out.println("[CONTAINER]: " + preco);
-			System.out.println("[CONTAINER]: " + tipo);
+			
+			mensagem = "produto cadastrado com sucesso !";
+			request.setAttribute("mensagem", mensagem);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrarProduto.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			mensagem = "Falha ao cadastrar produto !";
+			request.setAttribute("mensagem", mensagem);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrarProduto.jsp");
+			dispatcher.forward(request, response);
 		}
 
-		
 	}
 
 }

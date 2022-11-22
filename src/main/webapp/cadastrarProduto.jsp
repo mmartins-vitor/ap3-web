@@ -9,12 +9,11 @@
 <title>Eco Container</title>
 </head>
 <body>
-	
+
 	<main class="bananaMain">
 		<form action="cadastrarProduto" method="post" class="containerForm">
 			<div>
-				<label><strong>Tipo:</strong></label><input type="text"
-					name="tipo">
+				<label><strong>Tipo:</strong></label><input type="text" name="tipo">
 			</div>
 			<div>
 				<label><strong>Comprimento:</strong></label><input type="text"
@@ -37,6 +36,14 @@
 			<div>
 				<input id="containerButton" type="submit" name="salvar"
 					value="Cadastrar Produto">
+			</div>
+			<div>
+				<%
+				String mensagem = (String) request.getAttribute("mensagem");
+				if (mensagem!=null) {
+					out.print(mensagem);
+				}
+				%>
 			</div>
 		</form>
 	</main>
