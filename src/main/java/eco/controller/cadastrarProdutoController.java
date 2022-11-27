@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import eco.model.Produto;
+
 
 @WebServlet("/cadastrarProdutoController")
 public class cadastrarProdutoController extends HttpServlet {
@@ -41,11 +43,14 @@ public class cadastrarProdutoController extends HttpServlet {
 				&& request.getParameter("preco") != null && !request.getParameter("preco").isEmpty()
 				) {
 			
+			
 			comprimento = Integer.parseInt(request.getParameter("comprimento"));
 			largura = Integer.parseInt(request.getParameter("largura"));
 			quantidade = Integer.parseInt(request.getParameter("quantidade"));
 			preco = Double.parseDouble(request.getParameter("preco"));
 			
+			Produto produto = new Produto(tipo, comprimento, largura, quantidade, preco);
+			produto.salvar();
 			
 			mensagem = "produto cadastrado com sucesso !";
 			request.setAttribute("mensagem", mensagem);

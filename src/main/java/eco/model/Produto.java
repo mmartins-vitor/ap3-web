@@ -91,6 +91,11 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+
+
+	public void salvar() {
+		System.out.println("Produto salvo com sucesso !");
+	}
 	
 	
 }
