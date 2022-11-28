@@ -3,6 +3,7 @@ package eco.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,9 +36,9 @@ public class buscarProdutoController extends HttpServlet {
 		String descricao = request.getParameter("descricao");
 		ArrayList<Produto> produtos = new Produto().buscarProdutosPorTipo(descricao);
 		
-		for (Produto produto : produtos) {
-			System.out.println("[CONTAINER]: " + produto.getTipo());
-		}
+		request.setAttribute("produtos", produtos);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("consultarProduto.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }
