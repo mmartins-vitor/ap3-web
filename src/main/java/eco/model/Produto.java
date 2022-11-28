@@ -1,8 +1,10 @@
 package eco.model;
 
+import eco.dao.ProdutoDao;
+
 public class Produto {
 	private int idProduto;
-	private String Tipo;
+	private String tipo;
 	private int comprimento;
 	private int largura;
 	private int quantidade;
@@ -15,7 +17,7 @@ public class Produto {
 	
 	public Produto(String tipo, int comprimento, int largura, int quantidade, double preco) {
 		super();
-		Tipo = tipo;
+		this.tipo = tipo;
 		this.comprimento = comprimento;
 		this.largura = largura;
 		this.quantidade = quantidade;
@@ -25,7 +27,7 @@ public class Produto {
 	public Produto(int idProduto, String tipo, int comprimento, int largura, int quantidade, double preco) {
 		super();
 		this.idProduto = idProduto;
-		Tipo = tipo;
+		this.tipo = tipo;
 		this.comprimento = comprimento;
 		this.largura = largura;
 		this.quantidade = quantidade;
@@ -44,12 +46,12 @@ public class Produto {
 
 
 	public String getTipo() {
-		return Tipo;
+		return tipo;
 	}
 
 
 	public void setTipo(String tipo) {
-		Tipo = tipo;
+		this.tipo = tipo;
 	}
 
 
@@ -94,7 +96,7 @@ public class Produto {
 
 
 	public void salvar() {
-		System.out.println("Produto salvo com sucesso !");
+		new ProdutoDao().cadastrarProduto(this);
 	}
 	
 	

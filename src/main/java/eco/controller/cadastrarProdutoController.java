@@ -31,11 +31,8 @@ public class cadastrarProdutoController extends HttpServlet {
 		response.setContentType("text/html; charset-UTF-8");
 		
 		String tipo = request.getParameter("tipo");
-		int comprimento;
-		int largura;
-		int quantidade;
-		double preco;
 		String mensagem;
+		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrarProduto.jsp");
 		
 		if (tipo!= null && !tipo.isEmpty() && request.getParameter("comprimento") != null && !request.getParameter("comprimento").isEmpty()
 				&& request.getParameter("largura") != null && !request.getParameter("largura").isEmpty()
@@ -43,6 +40,10 @@ public class cadastrarProdutoController extends HttpServlet {
 				&& request.getParameter("preco") != null && !request.getParameter("preco").isEmpty()
 				) {
 			
+			int comprimento;
+			int largura;
+			int quantidade;
+			double preco;
 			
 			comprimento = Integer.parseInt(request.getParameter("comprimento"));
 			largura = Integer.parseInt(request.getParameter("largura"));
@@ -54,12 +55,12 @@ public class cadastrarProdutoController extends HttpServlet {
 			
 			mensagem = "produto cadastrado com sucesso !";
 			request.setAttribute("mensagem", mensagem);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrarProduto.jsp");
-			dispatcher.forward(request, response);
+			
+			//dispatcher.forward(request, response);
 		} else {
 			mensagem = "Falha ao cadastrar produto !";
 			request.setAttribute("mensagem", mensagem);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrarProduto.jsp");
+			//RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrarProduto.jsp");
 			dispatcher.forward(request, response);
 		}
 
