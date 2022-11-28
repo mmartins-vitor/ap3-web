@@ -1,5 +1,7 @@
 package eco.model;
 
+import java.util.ArrayList;
+
 import eco.dao.ProdutoDao;
 
 public class Produto {
@@ -97,6 +99,11 @@ public class Produto {
 
 	public void salvar() {
 		new ProdutoDao().cadastrarProduto(this);
+	}
+	
+	public ArrayList<Produto> buscarProdutosPorTipo (String tipo) {
+		return new ProdutoDao().buscarProdutosPorTipo(tipo);
+		
 	}
 	
 	

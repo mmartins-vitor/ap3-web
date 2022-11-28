@@ -7,9 +7,14 @@
   	<servlet-class>eco.controller.cadastrarProdutoController</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>buscar</servlet-name>
+  	<servlet-class>eco.controller.buscarProdutoController</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
-  	<servlet-name>cadastrar</servlet-name>
-  	<url-pattern>/cadastrarProduto</url-pattern>
+  	<servlet-name>buscar</servlet-name>
+  	<url-pattern>/buscarProdutos</url-pattern>
   </servlet-mapping>
 	
 </web-app>

@@ -6,12 +6,12 @@
 <link rel="stylesheet" href="css/bananaStyle.css">
 
 <meta charset="ISO-8859-1">
-<title>Banana Bacana</title>
+<title>Ecologic Container</title>
 </head>
 <body>
 	<nav class="bananaNav">
 		<ul>
-			<li><span style="color: yellow">BananaBacana</span></li>
+			<li><span style="color: yellow">EcoTainer</span></li>
 			<li><img src="img/bacana.png" height="20px"></li>
 			<li><a href="cadastrarProduto.jsp">Cadastrar Produto</a></li>
 			<li><a href="consultarProduto.jsp">Consultar Produto</a></li>

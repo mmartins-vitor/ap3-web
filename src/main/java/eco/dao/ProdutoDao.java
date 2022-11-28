@@ -2,6 +2,8 @@ package eco.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import eco.model.Produto;
 
@@ -40,5 +42,51 @@ public class ProdutoDao {
 				e2.printStackTrace();
 			}
 		}
+	}
+
+	public ArrayList<Produto> buscarProdutosPorTipo(String tipo) {
+		String sql = "SELECT * FROM PRODUTO WHERE tipo LIKE '%" + tipo + "%'";
+		ResultSet rs = null;
+		Connection conn = null;
+		PreparedStatement pStatement = null;
+		Produto produto = null;
+		ArrayList<Produto> produtos = null;
+		try {
+			conn = new MySqlConnection().getConnection();
+			pStatement = conn.prepareStatement(sql);
+			rs = pStatement.executeQuery();
+			if (rs != null) {
+				produtos = new ArrayList<Produto>();
+				while (rs.next()) {
+					produto = new Produto();
+					produto.setIdProduto(rs.getInt("idProduto"));
+					produto.setTipo(rs.getString("tipo"));
+					produto.setComprimento(rs.getInt("comprimento"));
+					produto.setLargura(rs.getInt("largura"));
+					produto.setQuantidade(rs.getInt("quantidade"));
+					produto.setPreco(rs.getDouble("preco"));
+					produtos.add(produto);
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pStatement != null)
+					pStatement.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return produtos;
 	}
 }
