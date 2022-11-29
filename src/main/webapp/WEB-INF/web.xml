@@ -12,6 +12,11 @@
   	<servlet-class>eco.controller.buscarProdutoController</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>modificar</servlet-name>
+  	<servlet-class>eco.controller.modificarProdutoController</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>buscar</servlet-name>
   	<url-pattern>/buscarProdutos</url-pattern>
@@ -20,6 +25,11 @@
   <servlet-mapping>
   	<servlet-name>cadastrar</servlet-name>
   	<url-pattern>/cadastrarProduto</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>modificar</servlet-name>
+  	<url-pattern>/modificarProduto</url-pattern>
   </servlet-mapping>
 	
 </web-app>

@@ -101,9 +101,17 @@ public class Produto {
 		new ProdutoDao().cadastrarProduto(this);
 	}
 	
+	public Produto buscarProdutoPorId(int idProduto) {
+		return new ProdutoDao().BuscarProdutoPorId(idProduto);
+	}
+	
 	public ArrayList<Produto> buscarProdutosPorTipo (String tipo) {
 		return new ProdutoDao().buscarProdutosPorTipo(tipo);
 		
+	}
+	
+	public void excluir(int idProduto) {
+		new ProdutoDao().ExcluirProduto(idProduto);
 	}
 	
 	
