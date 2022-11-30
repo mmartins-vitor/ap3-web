@@ -114,5 +114,8 @@ public class Produto {
 		new ProdutoDao().ExcluirProduto(idProduto);
 	}
 	
+	public void alterar () {
+		new ProdutoDao().AlterarProduto(this);
+	}
 	
 }

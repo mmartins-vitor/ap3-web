@@ -3,22 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/bananaStyle.css">
+<link rel="stylesheet" href="css/cadastroProduto.css">
 
 <meta charset="ISO-8859-1">
 <title>Ecologic Container</title>
 </head>
 <body>
-	<nav class="bananaNav">
+
+	<nav class="containerNav">
 		<ul>
 			<li><span style="color: yellow">EcoTainer</span></li>
-			<li><img src="img/bacana.png" height="20px"></li>
-			<li><a href="cadastrarProduto.jsp">Cadastrar Produto</a></li>
+			<li><img src="img/icone-container.png" width="100px"></li>
 			<li><a href="consultarProduto.jsp">Consultar Produto</a></li>
+			<li><a href="index.jsp">Sair</a></li>
+
 		</ul>
 	</nav>
-	<main class="bananaMain">
-		<form action="cadastrarProduto" method="post" class="bananaForm">
+	
+	<main class="containerMain">
+	
+		<form action="cadastrarProduto" method="post" class="containerForm">
 			<div>
 				<label><strong>Tipo:</strong></label><input type="text" name="tipo">
 			</div>
@@ -40,7 +44,7 @@
 			</div>
 
 			<br>
-			<div>
+			<div id="divCadButton">
 				<input id="containerButton" type="submit" name="salvar"
 					value="Cadastrar Produto">
 			</div>

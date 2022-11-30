@@ -4,22 +4,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/bananaStyle.css">
+<link rel="stylesheet" href="css/alterarProduto.css">
 
 <meta charset="ISO-8859-1">
 <title>Ecologic Container</title>
 </head>
 <body>
-	<nav class="bananaNav">
+	<nav class="containerNav">
 		<ul>
 			<li><span style="color: yellow">EcoTainer</span></li>
-			<li><img src="img/bacana.png" height="20px"></li>
+			<li><img src="img/icone-container.png" height="50px" width="50px"></li>
 			<li><a href="cadastrarProduto.jsp">Cadastrar Produto</a></li>
 			<li><a href="consultarProduto.jsp">Consultar Produto</a></li>
 		</ul>
 	</nav>
-	<main class="bananaMain">
-		<form action="alterarProduto" method="post" class="bananaForm">
+	<main class="containerMain">
+		<form action="alterarProduto" method="post" class="containerForm">
 
 			<%
 			Produto produto = null;
@@ -27,33 +27,34 @@
 				produto = (Produto) request.getAttribute("produto");
 			}
 			%>
-			<div>
+			<input type="hidden" name="id" value="<%out.print(produto.getIdProduto());%>">
+			<div class="input">
 				<label><strong>Tipo:</strong></label><input type="text" name="tipo"
 					value="<%out.print(produto.getTipo());%>">
 			</div>
-			<div>
+			<div class="input">
 				<label><strong>Comprimento:</strong></label><input type="text"
 					name="comprimento" value="<%out.print(produto.getComprimento());%>">
 			</div>
-			<div>
+			<div class="input">
 				<label><strong>Largura:</strong></label><input type="text"
 					name="largura" value="<%out.print(produto.getLargura());%>">
 			</div>
-			<div>
+			<div class="input">
 				<label><strong>Quantidade:</strong></label><input type="text"
 					name="quantidade" value="<%out.print(produto.getQuantidade());%>">
 			</div>
-			<div>
-				<label><strong>Preço:</strong></label><input type="text"
+			<div class="input">
+				<label><strong>PreÃ§o:</strong></label><input type="text"
 					name="preco" value="<%out.print(produto.getPreco());%>">
 			</div>
 
 			<br>
-			<div>
+			<div class="btnAltera">
 				<input id="containerButton" type="submit" name="alterar"
 					value="Alterar Produto">
 			</div>
-			<div>
+			<div class="input">
 				<input type="hidden" name="id">
 			</div>
 			<div>
